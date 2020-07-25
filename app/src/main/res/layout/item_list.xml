@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="item"
+            type="com.anwar.mynotepad.datarepository.model.Contactdata" />
+        <variable
+            name="clickListener"
+            type="com.anwar.mynotepad.ui.notelist.ContactItemListener" />
+        <variable
+            name="viewModel"
+            type="com.anwar.mynotepad.ui.notelist.ContactListViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardview"
+            android:elevation="1dp"
+            app:cardCornerRadius="8dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginBottom="1dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="5dp"
+                >
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tabbtn"
+                android:layout_alignParentEnd="true"
+                android:layout_gravity="right"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/editBtn"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginRight="15dp"
+                    android:background="@android:drawable/ic_menu_edit"
+                    android:focusable="true" />
+
+                <Button
+                    android:id="@+id/deleteBtn"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:background="@android:drawable/ic_delete"
+                    android:focusable="true" />
+
+            </TableRow>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="15dp"
+                android:onClick="@{() -> clickListener.onClick(item)}">
+
+
+
+                <TextView
+                    android:id="@+id/tv_noteTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    tools:text="Fahim"
+                    app:noteName="@{item}"/>
+
+                <LinearLayout
+                    android:id="@+id/firstLinear"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_noteTitle"
+                    android:paddingTop="5dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+
+                        android:layout_width="wrap_content"
+                        android:textStyle="italic"
+                        android:text="@string/description"
+                        android:layout_marginRight="3dp"
+                        android:layout_height="wrap_content"
+
+                        />
+
+                    <TextView
+                        android:id="@+id/tv_noteDescription"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tv_noteTitle"
+                        android:textStyle="italic"
+                        android:maxLines="1"
+                        tools:text="He lives in Dubai. He is an android app developer."
+                        android:padding="5dp"
+                        android:layout_marginEnd="5dp"
+                        app:noteDescription="@{item}"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/thirdLinear"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_below="@id/firstLinear"
+                    android:paddingTop="5dp">
+
+                    <TextView
+
+                        android:text="@string/note_number"
+                        android:layout_width="wrap_content"
+                        android:textStyle="italic"
+                        android:layout_marginEnd="3dp"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/item_number"
+                        tools:text="0171267878"
+                        android:layout_marginEnd="5dp"
+                        android:padding="5dp"
+                        app:noteNumber="@{item}"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/secondLinear"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_below="@id/thirdLinear"
+                    android:paddingTop="5dp">
+
+                    <TextView
+
+                        android:text="@string/date_added"
+                        android:layout_width="wrap_content"
+                        android:textStyle="italic"
+                        android:textSize="10sp"
+                        android:layout_marginEnd="3dp"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/item_date_added"
+                        tools:text="26th November, 2019"
+                        android:layout_marginEnd="5dp"
+                        android:textSize="10sp"
+                        android:padding="5dp"
+                        app:dateCreated="@{item}"/>
+                </LinearLayout>
+
+
+
+
+
+            </RelativeLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+</layout>

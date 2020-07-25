@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">My Contacts Note</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="click_to_add">Click to add a new note.</string>
+    <string name="new_item_dialog_title">Enter a new note.</string>
+    <string name="description">Description:</string>
+    <string name="date_added">Date added:</string>
+    <string name="note_number">Mobile:</string>
+    <string name="title">Title:</string>
+</resources>
